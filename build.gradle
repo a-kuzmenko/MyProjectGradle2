@@ -28,7 +28,7 @@ task chromeTest(type: Test){
 
 task geckoTest(type: Test){
     systemProperty "driver", "gecko"
-    userTestNG{
+    user2TestNG{
         suites "src/test/resources/testNg.xml"
     }
 }
