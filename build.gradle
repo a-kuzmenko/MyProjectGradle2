@@ -11,24 +11,34 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    agent
+}
+
 dependencies {
     // https://mvnrepository.com/artifact/org.testng/testng
     testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server
     compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.141.59'
+    agent "org.aspectj:aspectjweaver:1.8.0"
+    testCompile "ru.yandex.qatools.allure:allure-testng-adaptor:1.4.0"
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+}
 
+test.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
 }
 
 task chromeTest(type: Test){
     systemProperty "driver", "chrome"
-    userTestNG{
-        suites "src/test/resources/testNg.xml"
+    useTestNG{
+        suites 'src/test/resources/testNg.xml'
     }
 }
 
 task geckoTest(type: Test){
     systemProperty "driver", "gecko"
-    user2TestNG{
+    useTestNG{
         suites "src/test/resources/testNg.xml"
     }
 }

@@ -34,8 +34,8 @@ public class CreateLetterView extends BasePage {
     }
 
     public CreateLetterView clickOnCreateLetter() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView();", sendButton);
+        //js.executeScript("arguments[0].scrollIntoView();", sendButton);
+        driver.scrollDown();
         sendButton.click();
         return this;
     }

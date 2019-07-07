@@ -9,8 +9,8 @@ public class NewEmailFactory {
         resourceBundle = ResourceBundle.getBundle("newEmail");
     }
 
-    public static NewEmail getNewEmail() {
-        return new NewEmail(resourceBundle.getString("to"),
+    public static Email getNewEmail() {
+        return new Email(resourceBundle.getString("to"),
                 resourceBundle.getString("theme"),
                 resourceBundle.getString("text"));
     }

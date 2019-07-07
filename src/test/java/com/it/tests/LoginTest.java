@@ -11,6 +11,8 @@ public class LoginTest extends BaseTest{
 
         Thread.sleep(2);
 
-        Assert.assertEquals(app.dashboard.getUserEmail(), validUser.getEmail(), "Email is not valid");
+        Assert.assertEquals(app.dashboard.getUserEmail(),
+                validUser.getEmail(),
+                "Email is not valid");
     }
 }
